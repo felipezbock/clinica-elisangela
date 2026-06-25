@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicina Estética em Carazinho | Clínica Elisângela Bagetti</title>
+<meta name="description" content="Clínica Elisângela Bagetti — especialista em medicina estética avançada em Carazinho/RS. Botox, preenchimento labial, bioestimuladores, fios de PDO, peeling e muito mais. Agende pelo WhatsApp.">
+<meta name="keywords" content="medicina estética carazinho, botox carazinho, preenchimento labial carazinho, clínica estética carazinho, Elisângela Bagetti">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --roxo:      #6B4F8A;
+  --roxo-esc:  #3E2566;
+  --champagne: #C9A87C;
+  --dourado:   #B8985A;
+  --creme:     #FAF6F1;
+  --branco:    #FFFFFF;
+  --cinza:     #F2EEF7;
+  --texto:     #2D1F3D;
+  --leve:      #6E5E80;
+  --dark:      #1E1228;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--creme); color: var(--texto); overflow-x: hidden; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--roxo-esc);
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  padding: 9px 20px;
+  font-size: 12.5px;
+  letter-spacing: .06em;
+}
+.topbar a { color: var(--champagne); font-weight: 500; text-decoration: none; }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(107,79,138,0.1);
+  padding: 0 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+  transition: box-shadow .3s;
+}
+.navbar.scrolled { box-shadow: 0 4px 24px rgba(62,37,102,0.1); }
+.navbar-logo img { height: 50px; }
+.navbar-links { display: flex; gap: 32px; list-style: none; }
+.navbar-links a { text-decoration: none; color: var(--leve); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; transition: color .2s; }
+.navbar-links a:hover { color: var(--roxo); }
+.btn-nav {
+  background: var(--roxo); color: #fff;
+  padding: 10px 22px; border-radius: 50px;
+  font-size: 12.5px; font-weight: 500; letter-spacing: .05em;
+  text-decoration: none; transition: background .25s, transform .2s;
+  white-space: nowrap;
+}
+.btn-nav:hover { background: var(--roxo-esc); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 92vh;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  background: var(--dark);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 64px 80px 72px;
+  position: relative; z-index: 2;
+}
+.hero-left::after {
+  content: '';
+  position: absolute; right: -60px; top: 0; bottom: 0; width: 120px;
+  background: var(--dark);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--champagne); margin-bottom: 22px;
+  opacity: 0; animation: fadeUp .8s .2s ease forwards;
+}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--champagne); }
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 4.8vw, 64px);
+  font-weight: 300; line-height: 1.1; color: #fff;
+  margin-bottom: 20px;
+  opacity: 0; animation: fadeUp .8s .4s ease forwards;
+}
+.hero-h1 em { font-style: italic; color: var(--champagne); }
+.hero-sub {
+  font-size: 15.5px; color: rgba(255,255,255,0.6);
+  line-height: 1.75; max-width: 400px; font-weight: 300;
+  margin-bottom: 36px;
+  opacity: 0; animation: fadeUp .8s .6s ease forwards;
+}
+.hero-ctas {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .8s .8s ease forwards;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--champagne), var(--dourado));
+  color: var(--dark); padding: 15px 32px; border-radius: 50px;
+  font-size: 13.5px; font-weight: 600; letter-spacing: .05em;
+  text-decoration: none; transition: transform .25s, box-shadow .25s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,152,90,.4); }
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.8);
+  padding: 15px 32px; border-radius: 50px;
+  font-size: 13.5px; font-weight: 400; letter-spacing: .05em;
+  text-decoration: none; transition: background .25s, border-color .25s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.4); }
+
+.hero-right { position: relative; overflow: hidden; }
+.hero-right img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  filter: brightness(.9) saturate(1.05);
+}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--dark) 0%, transparent 28%);
+  z-index: 1;
+}
+.hero-badge {
+  position: absolute; bottom: 36px; right: 36px; z-index: 2;
+  background: rgba(255,255,255,.1); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px; padding: 14px 20px; text-align: right;
+  opacity: 0; animation: fadeUp .8s 1s ease forwards;
+}
+.hero-badge p { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: rgba(255,255,255,.9); font-weight: 300; line-height: 1.4; }
+.hero-badge span { font-size: 11px; color: var(--champagne); letter-spacing: .12em; text-transform: uppercase; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SOBRE ── */
+.sobre {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--branco);
+  overflow: hidden;
+}
+.sobre-img { position: relative; min-height: 520px; }
+.sobre-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.sobre-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(62,37,102,.12) 0%, transparent 60%);
+}
+.sobre-content {
+  padding: 72px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.section-tag {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--champagne); font-weight: 600; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-tag::after { content: ''; width: 32px; height: 1px; background: var(--champagne); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-weight: 300; color: var(--texto); line-height: 1.15;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--roxo); }
+.sobre-texto {
+  font-size: 15px; color: var(--leve); line-height: 1.8;
+  font-weight: 300; margin-bottom: 28px;
+}
+.sobre-lista { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.sobre-lista li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px; color: var(--texto);
+}
+.sobre-lista li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--champagne); flex-shrink: 0;
+}
+
+/* ── SERVIÇOS ── */
+.servicos {
+  background: var(--dark);
+  padding: 88px 72px;
+  position: relative; overflow: hidden;
+}
+.servicos::before {
+  content: '';
+  position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(107,79,138,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.servicos .section-title { color: var(--branco); margin-bottom: 0; }
+.servicos .section-title em { color: var(--champagne); }
+.servicos-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; flex-wrap: wrap; gap: 20px; }
+
+.servicos-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.stab {
+  font-size: 12px; padding: 6px 16px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.55);
+  cursor: pointer; transition: all .2s; background: transparent;
+  font-family: 'Jost', sans-serif;
+}
+.stab.active, .stab:hover { background: rgba(107,79,138,.4); border-color: rgba(107,79,138,.6); color: #fff; }
+
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.srv {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px; padding: 26px 22px;
+  transition: background .3s, border-color .3s, transform .3s;
+  opacity: 0; transform: translateY(18px);
+}
+.srv.visible { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+.srv:hover { background: rgba(107,79,138,.22); border-color: rgba(107,79,138,.45); transform: translateY(-4px); }
+.srv-icon { font-size: 24px; margin-bottom: 12px; }
+.srv-nome { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 7px; }
+.srv-desc { font-size: 12.5px; color: rgba(255,255,255,.48); line-height: 1.5; font-weight: 300; }
+
+.servicos-cta { text-align: center; margin-top: 44px; }
+.btn-outline-gold {
+  display: inline-block;
+  border: 1px solid var(--champagne); color: var(--champagne);
+  padding: 13px 34px; border-radius: 50px;
+  font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 500; text-decoration: none;
+  transition: background .25s, color .25s;
+}
+.btn-outline-gold:hover { background: var(--champagne); color: var(--dark); }
+
+/* ── DIFERENCIAIS ── */
+.diferenciais { padding: 88px 72px; background: var(--creme); }
+.dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 52px; }
+.dif-card {
+  background: var(--branco);
+  border: 1px solid rgba(107,79,138,.1);
+  border-radius: 16px; padding: 34px 30px;
+  transition: border-color .3s, box-shadow .3s, transform .3s;
+  opacity: 0; transform: translateY(20px);
+}
+.dif-card.visible { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+.dif-card:hover { border-color: var(--roxo); box-shadow: 0 8px 36px rgba(107,79,138,.1); transform: translateY(-4px); }
+.dif-icon { font-size: 26px; margin-bottom: 16px; }
+.dif-title { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: var(--roxo-esc); margin-bottom: 10px; }
+.dif-text { font-size: 14px; color: var(--leve); line-height: 1.65; font-weight: 300; }
+
+/* ── AVALIAÇÕES ── */
+.avaliacoes { background: var(--branco); padding: 88px 72px; }
+.av-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+.nota-box {
+  background: var(--creme); border: 1px solid rgba(107,79,138,.12);
+  border-radius: 14px; padding: 18px 26px;
+  display: flex; align-items: center; gap: 14px;
+}
+.nota-n { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 500; color: var(--roxo); line-height: 1; }
+.nota-info .stars { color: #FFD700; font-size: 17px; }
+.nota-info p { font-size: 12px; color: var(--leve); }
+.av-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.av-card {
+  background: var(--creme); border: 1px solid rgba(107,79,138,.1);
+  border-radius: 16px; padding: 28px 26px;
+  transition: box-shadow .3s, transform .3s;
+  opacity: 0; transform: translateY(18px);
+}
+.av-card.visible { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+.av-card:hover { box-shadow: 0 6px 30px rgba(107,79,138,.1); transform: translateY(-3px); }
+.av-stars { color: #FFD700; font-size: 14px; margin-bottom: 14px; }
+.av-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16.5px; line-height: 1.65; color: var(--texto);
+  font-style: italic; margin-bottom: 18px;
+}
+.av-autor { display: flex; align-items: center; gap: 10px; border-top: 1px solid rgba(107,79,138,.1); padding-top: 14px; }
+.av-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--roxo), var(--champagne));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 13px; font-weight: 600; flex-shrink: 0;
+}
+.av-nome { font-size: 13px; font-weight: 600; color: var(--texto); }
+.av-fonte { font-size: 11.5px; color: var(--leve); }
+
+/* ── LOCALIZAÇÃO ── */
+.localizacao { background: var(--cinza); padding: 88px 72px; }
+.loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 52px; align-items: start; }
+.mapa { border-radius: 16px; overflow: hidden; height: 400px; box-shadow: 0 8px 40px rgba(62,37,102,.12); }
+.mapa iframe { width: 100%; height: 100%; border: 0; }
+.loc-infos { display: flex; flex-direction: column; gap: 24px; }
+.loc-item { display: flex; gap: 16px; align-items: flex-start; }
+.loc-ico {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: rgba(107,79,138,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0; color: var(--roxo);
+}
+.loc-item h4 { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--champagne); font-weight: 600; margin-bottom: 5px; }
+.loc-item p { font-size: 14.5px; color: var(--texto); line-height: 1.6; }
+.loc-item a { color: var(--roxo); text-decoration: none; font-weight: 500; }
+.horarios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 20px; font-size: 13.5px; }
+.h-linha { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(107,79,138,.07); }
+.h-dia { color: var(--leve); font-weight: 300; }
+.h-hora { color: var(--texto); font-weight: 500; }
+
+/* ── CTA FINAL ── */
+.cta-final {
+  background: linear-gradient(135deg, var(--roxo-esc) 0%, var(--roxo) 60%, #8B5FB0 100%);
+  padding: 96px 72px; text-align: center; position: relative; overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cta-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 300; color: #fff; line-height: 1.15; margin-bottom: 18px;
+}
+.cta-titulo em { font-style: italic; color: var(--champagne); }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,.65); margin-bottom: 42px; font-weight: 300; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.btn-wpp {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: #25D366; color: #fff;
+  padding: 17px 42px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; letter-spacing: .04em;
+  text-decoration: none;
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+.btn-wpp:hover { background: #1EB855; transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,.4); }
+.btn-wpp svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+
+/* ── FOOTER ── */
+footer { background: var(--dark); padding: 56px 72px 28px; color: rgba(255,255,255,.55); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.footer-logo img { height: 46px; margin-bottom: 14px; filter: brightness(0) invert(1) opacity(.75); }
+.footer-logo p { font-size: 13.5px; line-height: 1.65; font-weight: 300; max-width: 260px; }
+.footer-col h5 { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--champagne); font-weight: 600; margin-bottom: 18px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { text-decoration: none; color: rgba(255,255,255,.5); font-size: 13.5px; transition: color .2s; }
+.footer-col ul a:hover { color: var(--champagne); }
+.footer-copy { font-size: 12px; text-align: center; color: rgba(255,255,255,.25); }
+
+/* ── WPP FLUTUANTE ── */
+.wpp-float {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 26px rgba(37,211,102,.45); z-index: 999;
+  text-decoration: none; animation: pulse 2.5s infinite;
+  transition: transform .25s;
+}
+.wpp-float:hover { transform: scale(1.1); animation: none; }
+.wpp-float svg { width: 28px; height: 28px; fill: #fff; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 6px 26px rgba(37,211,102,.45); }
+  50% { box-shadow: 0 6px 36px rgba(37,211,102,.75), 0 0 0 10px rgba(37,211,102,.1); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .hero, .sobre { grid-template-columns: 1fr; }
+  .hero-left { padding: 56px 28px; min-height: 60vh; }
+  .hero-left::after { display: none; }
+  .hero-right { height: 52vw; min-height: 260px; }
+  .navbar { padding: 0 22px; }
+  .navbar-links { display: none; }
+  .servicos, .diferenciais, .avaliacoes, .localizacao, .cta-final { padding: 60px 28px; }
+  footer { padding: 48px 28px 24px; }
+  .servicos-grid, .dif-grid, .av-grid { grid-template-columns: 1fr; }
+  .servicos-grid { grid-template-columns: 1fr 1fr; }
+  .loc-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .sobre-content { padding: 48px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Carazinho/RS · <a href="tel:5433314313">(54) 3331-4313</a> · <a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!%20Quero%20conhecer%20mais%20sobre%20a%20Clínica%20Elisângela%20Bagetti.">WhatsApp (54) 98421-1750</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#inicio" class="navbar-logo"><img src="logo.png" alt="Clínica Elisângela Bagetti"></a>
+  <ul class="navbar-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#avaliacoes">Avaliações</a></li>
+    <li><a href="#localizacao">Localização</a></li>
+  </ul>
+  <a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20consulta%20na%20Clínica%20Elisângela%20Bagetti." target="_blank" class="btn-nav">Agendar Consulta</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Medicina Estética · Carazinho/RS</p>
+    <h1 class="hero-h1">
+      Medicina Estética<br>
+      em <em>Carazinho</em><br>
+      com resultado natural
+    </h1>
+    <p class="hero-sub">
+      Especialista em estética avançada com procedimentos individualizados para realçar sua beleza e cuidar da sua autoestima com o cuidado que você merece.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20consulta%20na%20Clínica%20Elisângela%20Bagetti." target="_blank" class="btn-primary">Agendar pelo WhatsApp</a>
+      <a href="#servicos" class="btn-secondary">Ver Tratamentos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="foto-jaleco.jpg" alt="Dra. Elisângela Bagetti — Medicina Estética em Carazinho/RS">
+    <div class="hero-badge">
+      <p>Resultados que respeitam<br>a sua identidade</p>
+      <span>Dra. Elisângela Bagetti</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-img">
+    <img src="foto-branco.jpg" alt="Dra. Elisângela Bagetti">
+  </div>
+  <div class="sobre-content">
+    <div class="section-tag">Sobre a clínica</div>
+    <h2 class="section-title">Cuidar de você é<br><em>nossa especialidade</em></h2>
+    <p class="sobre-texto">
+      A Clínica Elisângela Bagetti nasceu do cuidado genuíno com cada paciente. Médica com ampla experiência em procedimentos estéticos avançados, a Dra. Elisângela acredita que rejuvenescer naturalmente é escolher se olhar com muita gentileza.
+    </p>
+    <p class="sobre-texto">
+      Cada tratamento é planejado individualmente, com protocolos que respeitam sua identidade e realçam o que já é belo em você.
+    </p>
+    <ul class="sobre-lista">
+      <li>Atendimento médico personalizado</li>
+      <li>Protocolos individualizados para cada paciente</li>
+      <li>Procedimentos com técnicas avançadas</li>
+      <li>Ambiente acolhedor e humanizado</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="servicos-header">
+    <div>
+      <div class="section-tag" style="color:var(--champagne)">Tratamentos</div>
+      <h2 class="section-title">Procedimentos<br><em>estéticos avançados</em></h2>
+    </div>
+  </div>
+
+  <div class="servicos-grid" id="srv-grid">
+    <div class="srv"><div class="srv-icon">✨</div><div class="srv-nome">Botox</div><div class="srv-desc">Toxina botulínica para suavizar linhas de expressão com resultado natural</div></div>
+    <div class="srv"><div class="srv-icon">💧</div><div class="srv-nome">Preenchimento Labial</div><div class="srv-desc">Volumização e definição dos lábios com ácido hialurônico</div></div>
+    <div class="srv"><div class="srv-icon">🔬</div><div class="srv-nome">Bioestimuladores de Colágeno</div><div class="srv-desc">Estímulo natural de colágeno para firmeza e rejuvenescimento</div></div>
+    <div class="srv"><div class="srv-icon">🧵</div><div class="srv-nome">Fios de PDO</div><div class="srv-desc">Lifting facial sem cirurgia com resultado progressivo</div></div>
+    <div class="srv"><div class="srv-icon">💋</div><div class="srv-nome">Preenchimento Facial</div><div class="srv-desc">Harmonização com ácido hialurônico para contorno e volume</div></div>
+    <div class="srv"><div class="srv-icon">🌟</div><div class="srv-nome">Peeling</div><div class="srv-desc">Renovação celular para manchas, melasma e uniformização da pele</div></div>
+    <div class="srv"><div class="srv-icon">💡</div><div class="srv-nome">Luz Pulsada</div><div class="srv-desc">Tratamento de manchas, vasinhos e rejuvenescimento global</div></div>
+    <div class="srv"><div class="srv-icon">👁️</div><div class="srv-nome">Blefaroplastia</div><div class="srv-desc">Rejuvenescimento da região dos olhos sem cirurgia</div></div>
+    <div class="srv"><div class="srv-icon">✦</div><div class="srv-nome">Lipo de Papada</div><div class="srv-desc">Redução de gordura abaixo do queixo e definição do contorno facial</div></div>
+    <div class="srv"><div class="srv-icon">🌿</div><div class="srv-nome">Tratamento de Melasma</div><div class="srv-desc">Protocolos médicos específicos para controle e redução do melasma</div></div>
+    <div class="srv"><div class="srv-icon">💎</div><div class="srv-nome">Skinbooster</div><div class="srv-desc">Hidratação profunda para textura, luminosidade e viço da pele</div></div>
+    <div class="srv"><div class="srv-icon">🌸</div><div class="srv-nome">Terapia Capilar</div><div class="srv-desc">Tratamentos médicos para recuperação e fortalecimento dos fios</div></div>
+  </div>
+
+  <div class="servicos-cta">
+    <a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!%20Quero%20saber%20mais%20sobre%20os%20tratamentos." target="_blank" class="btn-outline-gold">Quero Conhecer os Tratamentos</a>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais" id="diferenciais">
+  <div class="section-tag">Por que nos escolher</div>
+  <h2 class="section-title">O que torna a nossa<br><em>clínica diferente</em></h2>
+  <div class="dif-grid">
+    <div class="dif-card">
+      <div class="dif-icon">🎯</div>
+      <h3 class="dif-title">Resultados Comprovados</h3>
+      <p class="dif-text">Protocolos individualizados para cada paciente. Cada tratamento é planejado para realçar sua beleza natural, respeitando sua identidade.</p>
+    </div>
+    <div class="dif-card">
+      <div class="dif-icon">💉</div>
+      <h3 class="dif-title">Técnicas Avançadas</h3>
+      <p class="dif-text">Atualização constante com as mais modernas técnicas em medicina estética — de botox a bioestimuladores de colágeno e fios de PDO.</p>
+    </div>
+    <div class="dif-card">
+      <div class="dif-icon">🌸</div>
+      <h3 class="dif-title">Atendimento Humanizado</h3>
+      <p class="dif-text">Do agendamento ao pós-procedimento, você é atendida com atenção, cuidado e a ética que sua saúde e beleza merecem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AVALIAÇÕES -->
+<section class="avaliacoes" id="avaliacoes">
+  <div class="av-header">
+    <div>
+      <div class="section-tag">Avaliações</div>
+      <h2 class="section-title" style="margin-bottom:0">O que dizem<br><em>nossas pacientes</em></h2>
+    </div>
+    <div class="nota-box">
+      <div class="nota-n">5.0</div>
+      <div class="nota-info">
+        <div class="stars">★★★★★</div>
+        <p>no Google</p>
+        <p>Carazinho/RS</p>
+      </div>
+    </div>
+  </div>
+  <div class="av-grid">
+    <div class="av-card">
+      <div class="av-stars">★★★★★</div>
+      <p class="av-text">Profissional excelente! Me atendeu com muito cuidado e atenção. Resultado do botox ficou incrível, natural demais. Super recomendo!</p>
+      <div class="av-autor">
+        <div class="av-avatar">M</div>
+        <div><div class="av-nome">Maria Aparecida</div><div class="av-fonte">Google · Carazinho/RS</div></div>
+      </div>
+    </div>
+    <div class="av-card">
+      <div class="av-stars">★★★★★</div>
+      <p class="av-text">Fiz preenchimento labial e ficou perfeito! A Dra. Elisângela é muito atenciosa e explica tudo. Me senti muito segura durante o procedimento.</p>
+      <div class="av-autor">
+        <div class="av-avatar">A</div>
+        <div><div class="av-nome">Ana Paula</div><div class="av-fonte">Google · Carazinho/RS</div></div>
+      </div>
+    </div>
+    <div class="av-card">
+      <div class="av-stars">★★★★★</div>
+      <p class="av-text">Ambiente super aconchegante, atendimento de primeira. Já fiz vários procedimentos e sempre saio satisfeita. Resultado natural, do jeito que eu queria!</p>
+      <div class="av-autor">
+        <div class="av-avatar">J</div>
+        <div><div class="av-nome">Juliana Machado</div><div class="av-fonte">Google · Carazinho/RS</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="localizacao" id="localizacao">
+  <div class="section-tag">Onde estamos</div>
+  <h2 class="section-title">Venha nos<br><em>visitar</em></h2>
+  <div class="loc-grid">
+    <div class="mapa">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.0!2d-52.7946!3d-28.2816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDE2JzUzLjgiUyA1MsKwNDcnNDAuMiJX!5e0!3m2!1spt-BR!2sbr!4v1"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Localização Clínica Elisângela Bagetti">
+      </iframe>
+    </div>
+    <div class="loc-infos">
+      <div class="loc-item">
+        <div class="loc-ico">📍</div>
+        <div>
+          <h4>Endereço</h4>
+          <p>Rua Cipriano Ribeiro da Luz, 106 — Sala 104<br>Centro, Carazinho/RS · CEP 99500-000</p>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">📞</div>
+        <div>
+          <h4>Telefone</h4>
+          <p><a href="tel:5433314313">(54) 3331-4313</a></p>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">📱</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <p><a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!" target="_blank">(54) 98421-1750</a></p>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">🕐</div>
+        <div>
+          <h4>Horários de Atendimento</h4>
+          <div class="horarios-grid">
+            <div class="h-linha"><span class="h-dia">Segunda</span><span class="h-hora">08:30 – 18:00</span></div>
+            <div class="h-linha"><span class="h-dia">Terça</span><span class="h-hora">08:30 – 18:00</span></div>
+            <div class="h-linha"><span class="h-dia">Quarta</span><span class="h-hora">08:30 – 18:00</span></div>
+            <div class="h-linha"><span class="h-dia">Quinta</span><span class="h-hora">08:00 – 18:00</span></div>
+            <div class="h-linha"><span class="h-dia">Sexta</span><span class="h-hora">08:00 – 18:00</span></div>
+            <div class="h-linha"><span class="h-dia">Sábado</span><span class="h-hora">Fechado</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">📸</div>
+        <div>
+          <h4>Instagram</h4>
+          <p><a href="https://www.instagram.com/clinicaelisangelabagetti/" target="_blank">@clinicaelisangelabagetti</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2 class="cta-titulo">Cuide da sua <em>autoestima</em><br>com quem entende de beleza</h2>
+  <p class="cta-sub">Rejuvenescer naturalmente é escolher se olhar com muita gentileza. Agende sua consulta e descubra o tratamento ideal para você.</p>
+  <a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!%20Quero%20conhecer%20mais%20sobre%20a%20Clínica%20Elisângela%20Bagetti." target="_blank" class="btn-wpp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Agendar Consulta Agora
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Clínica Elisângela Bagetti">
+      <p>Especialista em medicina estética avançada em Carazinho/RS. Tratamentos personalizados para realçar sua beleza natural.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Tratamentos</h5>
+      <ul>
+        <li><a href="#servicos">Botox</a></li>
+        <li><a href="#servicos">Preenchimento Labial</a></li>
+        <li><a href="#servicos">Bioestimuladores</a></li>
+        <li><a href="#servicos">Fios de PDO</a></li>
+        <li><a href="#servicos">Peeling</a></li>
+        <li><a href="#servicos">Luz Pulsada</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <ul>
+        <li><a href="tel:5433314313">(54) 3331-4313</a></li>
+        <li><a href="https://wa.me/5554984211750" target="_blank">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/clinicaelisangelabagetti/" target="_blank">Instagram</a></li>
+        <li><a href="#localizacao">Como Chegar</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Clínica Elisângela Bagetti — Medicina Estética · Carazinho/RS · <a href="https://zabomarketing.com.br" target="_blank" style="color:rgba(255,255,255,.2);text-decoration:none;">Zabo Marketing</a></p>
+</footer>
+
+<!-- WPP FLUTUANTE -->
+<a href="https://wa.me/5554984211750?text=Olá%2C%20vim%20do%20site!%20Quero%20conhecer%20mais%20sobre%20a%20Clínica%20Elisângela%20Bagetti." target="_blank" class="wpp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.srv, .dif-card, .av-card').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
